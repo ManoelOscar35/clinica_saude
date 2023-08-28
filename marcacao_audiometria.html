@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit= no">
+
+		<title>Clínica Saúde</title>
+
+		<!-- Bootstrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    -->
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <script src="app-clinica2.js"></script>
+
+	</head>
+
+  <body>
+
+    <header> <!-- Início cabeçalho -->
+      
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        
+        <div class="container"> <!-- Início container -->
+
+          <a href="index.html">
+            <img src="img-logo.png" width="56" height="56">
+          </a>
+
+          <div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link text-white">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="consultas.html" class="nav-link text-white">Consultas</a>
+              </li>
+              <li class="nav-item">
+                <a href="exames.html" class="nav-link text-white">Exames</a>
+              </li>
+              <li class="nav-item">
+                <a href="contato.html" class="nav-link text-white">Contato</a>
+              </li>
+            </ul>
+          </div>
+
+        </div> <!-- Fim container -->
+
+      </nav>
+
+
+    </header> <!-- Fim cabeçalho -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col mb-5">
+          <h1 class="display-4">Marque seu exame aqui!</h1>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-2">
+          <input type="text" class="form-control" placeholder="Nome completo" id="nome_completo"/>
+        </div>
+
+        <div class="col-md-2">
+          <input type="text" class="form-control" placeholder="Telefone" id="telefone" />
+        </div>
+
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="E-mail" id="email" />
+        </div>
+
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Procedimento" id="procedimento" />
+        </div>
+      </div>
+
+      <div class="row justify-content-end">
+        <div class="col-md-8">
+          <button type="button" class="btn btn-primary" onclick="marcarProcedimento();">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        
+        <div class="col-md-4">
+          <a class="btn btn-info" href="registro.html">
+            Acesse o registro
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="modal_titulo_div">
+            <h5 class="modal-title" id="modal_titulo"></h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal_corpo">
+          </div>
+          <div class="modal-footer">            
+            <button type="button" data-dismiss="modal" id="modal_btn"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-4"> <!-- Início footer -->
+        
+      <div class="container"> <!-- Início container -->
+
+        <div style="margin-top: 200px;">
+            
+        </div>
+
+        <div class="row"> <!-- Início row -->
+          <div class="col-md-8 d-flex">
+            <a href="" class="btn btn-outline-dark">
+              <i class="fab fa-facebook-square fa-lg"></i>
+            </a>
+            <a href="" class="btn btn-outline-dark ml-2">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="btn btn-outline-dark ml-2">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="btn btn-outline-dark ml-2">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+
+          <div class="col-md-4 d-flex justify-content-end">
+            <div>
+              &copy;Todos os direitos reservados.
+            </div>
+          </div>
+        </div><!-- Fim row -->
+      </div><!-- Fim Container -->
+
+    </footer> <!-- Fim footer -->
+
+  </body>	
+
+</html>
